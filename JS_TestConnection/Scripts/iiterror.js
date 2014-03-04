@@ -31,10 +31,17 @@ function CookieHandler() {
     var exists = /[name]/.exec(document.cookie)
     if (exists == null) {
         var d = new Date();
-        d.setMinutes(d.getMinutes() + 1);
+        var newMonth = d.getMonth() + 6;
+
+        if (newMonth > 12) {
+            newMonth -= 12;
+        }
+
+        d.setMonth(newMonth);
+
         var expires = "expires=" + d.toGMTString();
         document.cookie = "name=mt1; " + expires;
-        alert("null");
+        alert("Dein Cookie ist abgelaufen - bitte gebe dein Kürzel erneut ein.");
     }
     return GetUserCookie(document.cookie);
 }
