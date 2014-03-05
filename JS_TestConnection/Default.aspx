@@ -57,12 +57,12 @@
                         <tbody>
                             <tr>
                                 <td class="form-inline">
-                                    <asp:TextBox ID="txtKürzel" Placeholder="Dein Kürzel" Width="150px" runat="server"></asp:TextBox>
-                                    <%--                            <asp:RegularExpressionValidator ForeColor="Red" ID="regKürzel" ErrorMessage="Kürzel ungültig" ControlToValidate="txtKürzel"
-                                ValidationExpression="(pre)?(\w{2}\d{2})?" runat="server">*</asp:RegularExpressionValidator>--%>
+                                    <asp:TextBox ID="uiKürzel" Placeholder="Dein Kürzel" Width="150px" runat="server"></asp:TextBox>
+                                    <asp:RegularExpressionValidator ForeColor="Red" ID="regKürzel" ErrorMessage="Kürzel ungültig" ControlToValidate="uiKürzel"
+                                        ValidationExpression="(pre)?(\w{2}\d{2})?" runat="server">*</asp:RegularExpressionValidator>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtStandort" Width="250px" list="standorte" placeholder="Standort" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="uiStandort" Width="250px" list="standorte" placeholder="Standort" runat="server"></asp:TextBox>
                                     <datalist id="standorte">
                                         <option>Berlin</option>
                                         <option>Burghausen</option>
@@ -79,12 +79,20 @@
                                     </datalist>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtDateTime" Width="250px" TextMode="DateTime" Enabled="false" placeholder="Datum / Uhrzeit" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="uiDateTime" Width="250px" TextMode="DateTime" Enabled="false" placeholder="Datum / Uhrzeit" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="3">Beschreibung:
-                    <asp:TextBox ID="txtNachricht" TextMode="MultiLine" Rows="5" placeholder="Kurze Erläuterung . . ." runat="server"></asp:TextBox>
+                                    <p><asp:DropDownList Width="300px" ID="uiProblem" runat="server" CssClass="form-control">
+                                        <asp:ListItem Value="">dein Problem...</asp:ListItem>                                        
+                                        <asp:ListItem>Internet-Verbindung</asp:ListItem>
+                                        <asp:ListItem>Sharepoint</asp:ListItem>
+                                        <asp:ListItem>Outlook</asp:ListItem>
+                                        <asp:ListItem>Lync</asp:ListItem>
+                                        <asp:ListItem>Telefon</asp:ListItem>
+                                    </asp:DropDownList></p>
+                                    <asp:TextBox ID="uiNachricht" TextMode="MultiLine" Rows="5" placeholder="Kurze Erläuterung . . ." runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                         </tbody>

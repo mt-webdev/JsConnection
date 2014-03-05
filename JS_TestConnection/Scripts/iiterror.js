@@ -1,32 +1,54 @@
 ﻿if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
+//--Variables
 var dataSent = false;
 var hasConnection = true;
-var fields = new Array("Kürzel", "Standort", "DateTime", "Nachricht");
+//---------------------- 0 --------- 1 -------- 2 --------- 3 -------- 4 ------
+var fields = new Array("Kürzel", "Standort", "DateTime", "Problem", "Nachricht");
 var rows = new Array();
+//--
 
+
+//--class MsgData
+var MsgData = function(n, d)
+{
+    var self = this;
+    
+    self.Name = n;
+    self.DateTime = GetCurrentDate();
+    self.Standort = "";
+    self.Problem = "";
+    self.Nachricht = "";
+}
+//--
+
+
+//--Jquery - Document.Load.Finished
 $(function () {
-    document.getElementById('txtKürzel').value = CookieHandler();
+    document.getElementById('uiKürzel').value = CookieHandler();
 
     TryLoadImage();
 
-    FillWithDateTime('txtDateTime');
-
     $('#btnSubmit').click(function () {
         TryLoadImage();
-        var s1 = document.getElementById('txt' + fields[0]).value;
-        var s2 = document.getElementById('txt' + fields[1]).value;
-        var s3 = document.getElementById('txt' + fields[2]).value;;
-        var s4 = document.getElementById('txt' + fields[3]).value;
-
-        var sTest = s1 + s2 + s4;
+        var s1 = document.getElementById('ui' + fields[0]).value;
+        var s2 = document.getElementById('ui' + fields[1]).value;
+        var s3 = document.getElementById('ui' + fields[2]).value;
+        var s4 = document.getElementById('ui' + fields[3]).value;
+        var s5 = document.getElementById('ui' + fields[4]).value;
+        var sTest = s1 + s2 + s4 + s5;
 
         if (sTest != "") {
-            AddTableRow(s1, s2, s3, s4);
+            AddTableRow(s1, s2, s3, s4, s5);
         }
     });
 });
+//--
 
+
+//--InitFields
+
+//Cookie Handling
 function CookieHandler() {
     var exists = /[name]/.exec(document.cookie)
     if (exists == null) {
@@ -51,13 +73,11 @@ function GetUserCookie(cookies) {
     var res = regexp.exec(cookies);
     return RegExp.$2;
 }
+//--
 
-function continueExecution() {
-    TryLoadImage();
-}
 
+//Workaround for Internet-Connection issues
 function TryLoadImage() {
-
     var img = $("<img />").attr('src', 'http://ppedv.de/Images/ppedvlogo_klein.png?x="' + Math.floor((Math.random() * 1000000) + 1).toString())
     .load(function () {
         document.getElementById('noConnection').innerHTML = "connected";
@@ -77,23 +97,13 @@ function TryLoadImage() {
     });
 }
 
-function FillFields() {
-    for (var i = 0; i < fields.length; i++) {
-        var e = fields[i];
-        document.getElementById('h' + e).innerHTML = document.getElementById('txt' + e).value;
-    }
+function continueExecution() {
+    TryLoadImage();
 }
+//--
 
-function FillWithDateTime(e) {
-    var date = new Date();
-    var options = {
-        year: "numeric", month: "numeric",
-        day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit"
-    };
 
-    document.getElementById(e).value = GetCurrentDate();
-}
-
+//--Get-Methods
 function GetCurrentDate() {
     var date = new Date();
     var options = {
@@ -102,17 +112,19 @@ function GetCurrentDate() {
     };
     return date.toLocaleTimeString("de-DE", options);
 }
+//--
 
-function AddTableRow(wer, wo, wann, was) {
+//--Create LastMsg Table
+function AddTableRow(wer, wo, wann, was1, was2) {
     var tr = document.createElement('tr');
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < fields.length; i++) {
         var td = document.createElement('td');
-        var txt = "true";
 
-        txt = document.getElementById('txt' + fields[i]).value;
+        txt = document.getElementById('ui' + fields[i]).value;
         td.appendChild(document.createTextNode(txt));
         tr.appendChild(td);
     }
     document.getElementById('tbdyOutput').innerHTML = tr.outerHTML;
     $('#tblOutput').fadeIn();
 }
+//--

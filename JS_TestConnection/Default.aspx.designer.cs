@@ -13,39 +13,57 @@ namespace JS_TestConnection {
     public partial class _Default {
         
         /// <summary>
-        /// txtKürzel control.
+        /// uiKürzel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtKürzel;
+        protected global::System.Web.UI.WebControls.TextBox uiKürzel;
         
         /// <summary>
-        /// txtStandort control.
+        /// regKürzel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStandort;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regKürzel;
         
         /// <summary>
-        /// txtDateTime control.
+        /// uiStandort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateTime;
+        protected global::System.Web.UI.WebControls.TextBox uiStandort;
         
         /// <summary>
-        /// txtNachricht control.
+        /// uiDateTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNachricht;
+        protected global::System.Web.UI.WebControls.TextBox uiDateTime;
+        
+        /// <summary>
+        /// uiProblem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiProblem;
+        
+        /// <summary>
+        /// uiNachricht control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiNachricht;
     }
 }
