@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{48684E
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JS_TestConnection", "JS_TestConnection.csproj", "{C1DCFFB6-DD61-4B4A-84B4-699E11F7676C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JS_TestConnection", "JS_TestConnection\JS_TestConnection.csproj", "{C1DCFFB6-DD61-4B4A-84B4-699E11F7676C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
