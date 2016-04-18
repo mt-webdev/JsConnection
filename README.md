@@ -1,4 +1,7 @@
 JsConnection
 ============
 
-a little Application which test if you r connected to the internet. also able to send mails of problems you have to an admin of your network.
+This is an ancient sample by me. It uses awesome advanced JavaScript to check if the client got access to the Internet-thingy.
+Use on your own risk.
+
+Best Regards
